@@ -5,4 +5,8 @@ if [ -z ${data_dir} ]; then
     data_dir=${PWD}/data
 fi
 
-docker run -it -v ${data_dir}:/ws/data --entrypoint=zsh docker_cpp_env:latest
+xhost +local:docker
+
+docker run -it -v ${data_dir}:/ws/data \
+    -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
+    --entrypoint=zsh docker_cpp_env:latest
