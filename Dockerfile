@@ -6,8 +6,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive \
     libgtest-dev libopencv-dev libprotobuf-dev libssl-dev \
     python3 python3-pip \
     pybind11-dev protobuf-compiler python3-dev python3-numpy \
-    git wget vim tmux tree curl \
-    aptitude
+    git wget vim tmux tree curl aptitude \
+    libatlas-base-dev libsuitesparse-dev
 
 # https://github.com/deluan/zsh-in-docker
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
