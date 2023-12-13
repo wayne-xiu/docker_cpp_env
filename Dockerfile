@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM nvidia/cuda:11.1.1-cudnn8-devel-ubuntu20.04
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive \
     apt-get install -y build-essential cmake \
@@ -7,7 +7,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive \
     python3 python3-pip \
     pybind11-dev protobuf-compiler python3-dev python3-numpy \
     git wget vim tmux tree curl aptitude \
-    libatlas-base-dev libsuitesparse-dev
+    libatlas-base-dev libsuitesparse-dev \
+    ccache
 
 # https://github.com/deluan/zsh-in-docker
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.5/zsh-in-docker.sh)" -- \
