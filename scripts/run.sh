@@ -7,6 +7,7 @@ fi
 
 xhost +local:docker
 
-docker run -it -v ${data_dir}:/ws/data \
+docker run --gpus all -it -v ${data_dir}:/ws/data \
     -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY \
     --entrypoint=zsh docker_cpp_env:latest
+    
